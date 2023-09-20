@@ -5,7 +5,9 @@ import org.example.model.Book;
 import org.example.model.CollectedBooks;
 import org.example.model.User;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static org.example.service.LibraryServiceImpl.inventory;
@@ -35,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public String borrowBook(User user, String title) {
+    public String borrowBook(User user, String title, int durationInDays) {
 
         Book book = null;
         int bookIndex = 0;
@@ -64,6 +66,9 @@ public class CustomerServiceImpl implements CustomerService {
         inventory.add(bookIndex, book);
 
         CollectedBooks collectedBooks = new CollectedBooks(book.getTitle(), book.getAuthor(), 1);
+        LocalDate currentDate = LocalDate.now();
+        collectedBooks.setCollectionDate(currentDate.toString());
+        collectedBooks.setDueDate(currentDate.plusDays(durationInDays).toString());
 
         List<CollectedBooks> userCollection = new ArrayList<>();
         userCollection.add(collectedBooks);

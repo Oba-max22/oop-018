@@ -7,9 +7,6 @@ import org.example.service.CustomerService;
 import org.example.service.CustomerServiceImpl;
 import org.example.service.LibraryService;
 import org.example.service.LibraryServiceImpl;
-
-import javax.sound.midi.Soundbank;
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
@@ -35,6 +32,7 @@ public class Main {
          */
 
 
+/*
         System.out.println(HELLO_WORLD);
 
         int n = getLengthOfVar();
@@ -50,7 +48,7 @@ public class Main {
         System.out.println(Integer.MAX_VALUE);
         System.out.println(Long.MAX_VALUE);
 
-        /*
+
         int[] numArr = {0,1,2,3,4,5,6};
 
         int[] oNumArr = new int[7];
@@ -119,13 +117,13 @@ public class Main {
         System.out.println();
         System.out.println(customerService.register(firstCustomer));
         System.out.println();
-        System.out.println(customerService.borrowBook(firstCustomer, "Percy Jackson"));
+        System.out.println(customerService.borrowBook(firstCustomer, "Percy Jackson", 2));
         System.out.println();
-        System.out.println(customerService.borrowBook(firstCustomer, "Things Fall Apart"));
+        System.out.println(customerService.borrowBook(firstCustomer, "Things Fall Apart",4));
         System.out.println();
-        System.out.println(customerService.borrowBook(firstCustomer, "Flowers"));
+        System.out.println(customerService.borrowBook(firstCustomer, "Flowers", 5));
         System.out.println();
-        System.out.println(customerService.borrowBook(firstCustomer, "Flowers"));
+        System.out.println(customerService.borrowBook(firstCustomer, "Flowers", 5));
         System.out.println();
         System.out.println(libraryService.displayInventory(librarian));
     }

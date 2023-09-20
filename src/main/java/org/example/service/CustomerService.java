@@ -6,5 +6,5 @@ public interface CustomerService {
 
     String register(User user);
 
-    String borrowBook(User user, String title);
+    String borrowBook(User user, String title, int durationInDays);
 }
