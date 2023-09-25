@@ -4,10 +4,10 @@ import org.example.enums.Role;
 import org.example.model.Book;
 import org.example.model.CollectedBooks;
 import org.example.model.User;
+import org.example.util.WriterUtil;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static org.example.service.LibraryServiceImpl.inventory;
@@ -64,6 +64,7 @@ public class CustomerServiceImpl implements CustomerService {
         // persist inventory changes.
         inventory.remove(bookIndex);
         inventory.add(bookIndex, book);
+        WriterUtil.writeInventoryToFile();
 
         CollectedBooks collectedBooks = new CollectedBooks(book.getTitle(), book.getAuthor(), 1);
         LocalDate currentDate = LocalDate.now();

@@ -3,6 +3,7 @@ package org.example.service;
 import org.example.enums.Role;
 import org.example.model.Book;
 import org.example.model.User;
+import org.example.util.WriterUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,7 @@ public class LibraryServiceImpl implements LibraryService {
         }
 
         this.inventory.add(book);
+        WriterUtil.writeInventoryToFile();
 
         return BOOK_ADDITION_SUCCESS;
     }
