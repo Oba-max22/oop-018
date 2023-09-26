@@ -3,6 +3,7 @@ package org.example.service;
 import org.example.enums.Role;
 import org.example.model.Book;
 import org.example.model.User;
+import org.example.util.ReaderUtil;
 import org.example.util.WriterUtil;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class LibraryServiceImpl implements LibraryService {
             return UNAUTHORIZED_ACCESS;
         }
 
-        return this.inventory.toString();
+        return ReaderUtil.readFromFileToStandardOutput();
     }
 
     @Override
@@ -38,7 +39,7 @@ public class LibraryServiceImpl implements LibraryService {
             return BOOK_ALREADY_EXISTS;
         }
 
-        this.inventory.add(book);
+        inventory.add(book);
         WriterUtil.writeInventoryToFile();
 
         return BOOK_ADDITION_SUCCESS;

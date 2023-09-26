@@ -1,5 +1,6 @@
 package org.example.util;
 
+import org.example.exceptions.InvalidPathException;
 import org.example.model.Book;
 
 import java.io.BufferedWriter;
